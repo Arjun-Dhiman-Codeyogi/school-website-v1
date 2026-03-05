@@ -156,7 +156,7 @@ const Index: React.FC = () => {
             {features.map((feature, i) => (
               <div
                 key={i}
-                className="glass-card p-6 rounded-xl text-left hover-neon-card group border cursor-default"
+                className="glass-card p-6 rounded-xl text-left hover-neon-card group border cursor-pointer"
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <feature.icon className="h-6 w-6 text-primary" />

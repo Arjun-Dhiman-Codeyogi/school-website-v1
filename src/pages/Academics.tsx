@@ -71,7 +71,7 @@ const Academics: React.FC = () => {
               <div
                 key={i}
                 className={cn(
-                  "glass-card p-6 rounded-xl border transition-all duration-500 cursor-default",
+                  "glass-card p-6 rounded-xl border transition-all duration-500 cursor-pointer",
                   hoveredFacility === i ? "neon-glow scale-[1.03]" : "hover-neon-card"
                 )}
                 onMouseEnter={() => setHoveredFacility(i)}

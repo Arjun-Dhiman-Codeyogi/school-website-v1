@@ -98,7 +98,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-17 md:h-[82px]">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 bubble-hover rounded-lg px-2 py-1 -mx-2 transition-colors hover:bg-accent/50">
+            <Link to="/" className="flex items-center gap-2 rounded-lg px-2 py-1 -mx-2">
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                 <GraduationCap className="w-4 h-4 text-primary-foreground" />
               </div>
@@ -165,7 +165,7 @@ const Navbar = () => {
               <Separator orientation="vertical" className="h-6 mx-2" />
 
               {/* Theme Toggle */}
-              <Toggle
+              <Toggle className="cursor-pointer hover:bg-accent hover:text-accent-foreground"
                 pressed={theme === 'dark'}
                 onPressedChange={toggleTheme}
                 size="sm"
@@ -177,7 +177,7 @@ const Navbar = () => {
 
             {/* Mobile hamburger - visible at 768px and below */}
             <div className="md:hidden flex items-center gap-1 ">
-              <Toggle
+              <Toggle className="cursor-pointer hover:bg-accent hover:text-accent-foreground"
                 pressed={theme === 'dark'}
                 onPressedChange={toggleTheme}
                 size="sm"
@@ -188,7 +188,7 @@ const Navbar = () => {
 
               <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
                 <SheetTrigger asChild>
-                  <button className="p-2  rounded-md hover:bg-accent transition-colors" aria-label="Open menu">
+                  <button className="p-2 cursor-pointer rounded-md hover:bg-accent transition-colors" aria-label="Open menu">
                     <Menu className="h-5 w-5 " />
                   </button>
                 </SheetTrigger>

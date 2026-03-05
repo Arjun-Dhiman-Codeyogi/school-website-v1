@@ -140,7 +140,7 @@ const Home = () => {
                 Apply Now <ArrowRight className="h-4 w-4 ml-1" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="glass-card hover-neon-card">
+            <Button variant="outline" size="lg" asChild className="glass-card hover-neon-card text-primary border-primary hover:text-primary">
               <Link to="/about">Explore More</Link>
             </Button>
           </div>
@@ -197,7 +197,7 @@ const Home = () => {
           </p>
           <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, i) => (
-              <Card key={i} className="hover-neon-card text-left group cursor-default">
+              <Card key={i} className="hover-neon-card text-left group cursor-pointer">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-2 group-hover:bg-primary/20 transition-colors">
                     <feature.icon className="h-6 w-6 text-primary" />

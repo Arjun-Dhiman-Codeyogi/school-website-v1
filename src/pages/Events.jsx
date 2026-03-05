@@ -42,6 +42,8 @@ const Events = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [regName, setRegName] = useState('');
   const [regClass, setRegClass] = useState('');
+  const [submitMsg, setSubmitMsg] = useState('');
+  const [openDrawer, setOpenDrawer] = useState(null);
   const heroRef = useScrollFadeIn({ y: 30 });
 
   return (
@@ -172,8 +174,8 @@ const Events = () => {
                     <CardContent>
                       <Collapsible>
                         <CollapsibleTrigger asChild>
-                          <Button variant="ghost" size="sm" className="p-0 h-auto text-xs text-primary">
-                            More details <ChevronDown className="h-3 w-3 ml-1" />
+                          <Button variant="ghost" size="sm" className="p-1 h-auto text-xs text-primary">
+                            More details <ChevronDown className="h-3 w-3 ml-1 " />
                           </Button>
                         </CollapsibleTrigger>
                         <CollapsibleContent className="mt-2">
@@ -190,7 +192,7 @@ const Events = () => {
                         <Button size="sm" variant="outline" onClick={() => setSelectedEvent(event)}>
                           View Details
                         </Button>
-                        <Drawer>
+                        <Drawer open={openDrawer === i} onOpenChange={(open) => { setOpenDrawer(open ? i : null); if (!open) setSubmitMsg(''); }}>
                           <DrawerTrigger asChild>
                             <Button size="sm">Register</Button>
                           </DrawerTrigger>
@@ -212,10 +214,31 @@ const Events = () => {
                                 </SelectContent>
                               </Select>
                             </div>
+                            {submitMsg && (
+                              <p className="px-4 text-sm text-green-600 font-medium">{submitMsg}</p>
+                            )}
                             <DrawerFooter>
-                              <Button>Submit Registration</Button>
+                              <Button
+                                className='cursor-pointer'
+                                onClick={() => {
+                                  if (!regName.trim() || !regClass) {
+                                    setSubmitMsg('Please enter your name and select a class.');
+                                    setTimeout(() => setSubmitMsg(''), 3000);
+                                    return;
+                                  }
+                                  setSubmitMsg(`Registration successful! ${regName} (${regClass}) registered for ${event.title}.`);
+                                  setRegName('');
+                                  setRegClass('');
+                                  setTimeout(() => {
+                                    setOpenDrawer(null);
+                                    setSubmitMsg('');
+                                  }, 2000);
+                                }}
+                              >
+                                Submit Registration
+                              </Button>
                               <DrawerClose asChild>
-                                <Button variant="outline">Cancel</Button>
+                                <Button className='cursor-pointer' variant="outline" onClick={() => setSubmitMsg('')}>Cancel</Button>
                               </DrawerClose>
                             </DrawerFooter>
                           </DrawerContent>
@@ -276,7 +299,7 @@ const Events = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="section-title">Academic Calendar <span className="gradient-text">2026-27</span></h2>
           <p className="section-subtitle mb-6">Download the complete academic calendar with all important dates.</p>
-          <Button size="lg">Download Calendar (PDF)</Button>
+          <Button className='cursor-pointer' size="lg">Download Calendar (PDF)</Button>
         </div>
       </section>
     </div>
