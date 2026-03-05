@@ -1,5 +1,5 @@
-import { Toaster as Sonner, toast } from "sonner";
-import { useTheme } from "../../contexts/ThemeContext.jsx";
+import { Toaster as Sonner, } from "sonner";
+import { useTheme } from "../../contexts/useTheme";
 
 const Toaster = ({ ...props }) => {
   const { theme = "light" } = useTheme();
@@ -22,4 +22,4 @@ const Toaster = ({ ...props }) => {
   );
 };
 
-export { Toaster, toast };
+export { Toaster };

@@ -1,27 +1,11 @@
-import React, { useRef, useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
+import { createColoredParticleGeometry } from './particlePositions';
 
 const Particles = ({ count = 150, colors = ['#3b82f6'] }) => {
   const points = useRef(null);
 
-  const { positions, colorArray } = useMemo(() => {
-    const pos = new Float32Array(count * 3);
-    const col = new Float32Array(count * 3);
-    const parsedColors = colors.map((c) => new THREE.Color(c));
-
-    for (let i = 0; i < count; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 20;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 20;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 20;
-
-      const color = parsedColors[Math.floor(Math.random() * parsedColors.length)];
-      col[i * 3] = color.r;
-      col[i * 3 + 1] = color.g;
-      col[i * 3 + 2] = color.b;
-    }
-    return { positions: pos, colorArray: col };
-  }, [count, colors]);
+  const geometry = useMemo(() => createColoredParticleGeometry(count, colors), [count, colors]);
 
   useFrame((state) => {
     if (points.current) {
@@ -31,11 +15,7 @@ const Particles = ({ count = 150, colors = ['#3b82f6'] }) => {
   });
 
   return (
-    <points ref={points}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-        <bufferAttribute attach="attributes-color" args={[colorArray, 3]} />
-      </bufferGeometry>
+    <points ref={points} geometry={geometry}>
       <pointsMaterial size={0.05} vertexColors transparent opacity={0.6} sizeAttenuation />
     </points>
   );

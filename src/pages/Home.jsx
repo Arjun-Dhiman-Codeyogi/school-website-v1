@@ -11,7 +11,7 @@ import { Alert, AlertDescription, AlertTitle } from '../components/ui/alert';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '../components/ui/chart';
 import { Bar, BarChart, XAxis, YAxis } from 'recharts';
 import { useScrollFadeIn, useStaggerChildren } from '../hooks/useGsapAnimations';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '../contexts/useTheme';
 import gsap from 'gsap';
 
 const stats = [
@@ -146,11 +146,11 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+        {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
           <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex justify-center">
             <div className="w-1 h-3 rounded-full bg-primary mt-2 animate-float" />
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* Announcement Alert */}
@@ -231,7 +231,7 @@ const Home = () => {
                     poster=""
                     preload="metadata"
                   >
-                    <source src="./assets/WhatsApp Video 2026-02-16 at 20.52.05.mp4" type="video/mp4" />
+                    <source src="WhatsApp Video 2026-02-16 at 20.52.05.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 peer-paused:opacity-100">
@@ -325,8 +325,8 @@ const Home = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="hidden sm:flex" />
+            <CarouselNext className="hidden sm:flex" />
           </Carousel>
         </div>
       </section>

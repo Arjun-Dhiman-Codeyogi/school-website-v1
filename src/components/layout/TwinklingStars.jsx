@@ -1,5 +1,5 @@
-import { useMemo, useState, useEffect } from 'react';
-import { useTheme } from '../../contexts/ThemeContext';
+import { useState, useEffect } from 'react';
+import { useTheme } from '../../contexts/useTheme';
 
 const STAR_COUNT = 50;
 

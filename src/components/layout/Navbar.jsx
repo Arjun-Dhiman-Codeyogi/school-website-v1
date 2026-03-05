@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { useTheme } from '../../contexts/ThemeContext';
+import { useTheme } from '../../contexts/useTheme';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,8 +8,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from '../ui/navigation-menu';
+import { navigationMenuTriggerStyle } from '../ui/navigationMenuTriggerStyle';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
 import { Separator } from '../ui/separator';
@@ -176,7 +176,7 @@ const Navbar = () => {
             </div>
 
             {/* Mobile hamburger - visible at 768px and below */}
-            <div className="md:hidden flex items-center gap-2 ">
+            <div className="md:hidden flex items-center gap-1 ">
               <Toggle
                 pressed={theme === 'dark'}
                 onPressedChange={toggleTheme}
@@ -188,8 +188,8 @@ const Navbar = () => {
 
               <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
                 <SheetTrigger asChild>
-                  <button className="p-2 rounded-md hover:bg-accent transition-colors" aria-label="Open menu">
-                    <Menu className="h-5 w-5 sm:mr-3" />
+                  <button className="p-2  rounded-md hover:bg-accent transition-colors" aria-label="Open menu">
+                    <Menu className="h-5 w-5 " />
                   </button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-60">

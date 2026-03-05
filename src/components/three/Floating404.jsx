@@ -1,7 +1,7 @@
-import React, { useRef, useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Text3D, Center } from '@react-three/drei';
-import * as THREE from 'three';
+import { Float } from '@react-three/drei';
+import { createParticleGeometry } from './particlePositions';
 
 const FloatingNumbers = () => {
   const groupRef = useRef();
@@ -39,15 +39,7 @@ const Particles404 = () => {
   const points = useRef(null);
   const count = 100;
 
-  const positions = useMemo(() => {
-    const pos = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 15;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 10;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 15;
-    }
-    return pos;
-  }, []);
+  const geometry = useMemo(() => createParticleGeometry(count), []);
 
   useFrame((state) => {
     if (points.current) {
@@ -56,10 +48,7 @@ const Particles404 = () => {
   });
 
   return (
-    <points ref={points}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
-      </bufferGeometry>
+    <points ref={points} geometry={geometry}>
       <pointsMaterial size={0.05} color="#8b5cf6" transparent opacity={0.4} sizeAttenuation />
     </points>
   );

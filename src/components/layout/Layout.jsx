@@ -29,7 +29,7 @@ const Layout = () => {
   const isContact = location.pathname === '/contact';
 
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden">
       <TwinklingStars />
       <Navbar />
       <main className={cn("flex-1", isHome ? "pt-0" : isContact ? "pt-14 md:pt-[82px]" : "pt-14 md:pt-[70px]")}>
