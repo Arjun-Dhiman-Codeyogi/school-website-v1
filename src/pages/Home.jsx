@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users, BookOpen, Trophy, Calendar, Star, Zap, Target, Sparkles, GraduationCap, FlaskConical, Dumbbell, Library, Bus, Monitor, AlertCircle, Play } from 'lucide-react';
-import ParticleBackground from '../components/three/ParticleBackground';
+import { ArrowRight, Users, BookOpen, Trophy, Calendar, Sparkles, GraduationCap, FlaskConical, Dumbbell, Library, Bus, Monitor, AlertCircle, Play } from 'lucide-react';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
@@ -80,7 +79,7 @@ const AnimatedCounter = ({ target, suffix }) => {
   }, [target]);
 
   return (
-    <div ref={ref} className="font-heading text-3xl md:text-4xl font-bold gradient-text">
+    <div ref={ref} className="font-heading text-3xl md:text-4xl font-bold text-primary">
       {count}{suffix}
     </div>
   );
@@ -106,59 +105,63 @@ const Home = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-start overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <ParticleBackground
-            count={840}
-            colors={theme === 'light' ? ['#3b82f6', '#2563eb', '#1d4ed8'] : ['#3b82f6', '#ffffff', '#60a5fa', '#93c5fd']}
+      {/* Hero Section - Greenwood Style */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-[70%] h-full z-0 hidden md:block">
+          <img
+            src="mainBuilding.jpg"
+            alt="Public Inter College Building"
+            className="w-full h-full object-cover"
           />
+          <div className={`absolute inset-0 ${theme === 'light' ? 'bg-gradient-to-r from-background via-background/60 to-transparent' : 'bg-gradient-to-r from-background via-background/84 to-background/20'}`} />
         </div>
-        {/* Floating geometric orbs */}
-        <div className="absolute inset-0 z-[1] pointer-events-none" aria-hidden="true">
-          <div className="absolute top-1/4 left-1/5 w-64 h-64 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-3xl animate-float" />
-          <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-gradient-to-br from-blue-500/15 to-purple-500/10 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-          <div className="absolute bottom-1/4 left-1/3 w-56 h-56 rounded-full bg-gradient-to-br from-accent/15 to-primary/10 blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+        {/* Mobile: full background image */}
+        <div className="absolute inset-0 z-0 md:hidden">
+          <img
+            src="mainBuilding.jpg"
+            alt="Public Inter College Building"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className={`absolute inset-0 ${theme === 'light' ? 'bg-background/75' : 'bg-background/80'}`} />
         </div>
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-background/40 via-background/20 to-background" />
+        {/* Decorative orange circle */}
+        <div className="absolute top-20 right-[15%] w-72 h-72 rounded-full bg-primary/8 blur-3xl hidden md:block" />
+        <div className="absolute bottom-20 right-[30%] w-48 h-48 rounded-full bg-primary/5 blur-2xl hidden md:block" />
 
-        <div ref={heroTitleRef} className="container mx-auto px-4 relative z-10 flex flex-col items-center text-center pt-36 md:pt-42">
-          <Badge variant="secondary" className="mb-6 px-4 py-1.5 text-xs font-accent tracking-widest uppercase">
-            <Sparkles className="h-3 w-3 mr-1" />
-            Admissions Open 2026-27
-          </Badge>
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
-            Welcome to{' '}
-            <span className="gradient-text neon-text">Public Inter College</span>
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 md:mb-20">
-            Nurturing Young Minds, Building Tomorrow's Leaders. Where every child discovers their potential through quality education.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" asChild>
-              <Link to="/admissions">
-                Apply Now <ArrowRight className="h-4 w-4 ml-1" />
-              </Link>
-            </Button>
-            <Button variant="outline" size="lg" asChild className="glass-card hover-neon-card text-primary border-primary hover:text-primary">
-              <Link to="/about">Explore More</Link>
-            </Button>
+        <div ref={heroTitleRef} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-12 md:pt-18 md:pb-0">
+          <div className="max-w-xl">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-widest uppercase mb-8">
+              <Sparkles className="h-3 w-3" />
+              ESTABLISHED 1947 &bull; EXCELLENCE IN EDUCATION
+            </div>
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] mb-5">
+              Empowering Minds,{' '}
+              <span className="gradient-text">Shaping Futures.</span>
+            </h1>
+            <p className="text-base md:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed">
+              Welcome to Public Inter College, where we nurture curiosity, foster integrity, and prepare the next generation of global leaders through holistic learning.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" asChild className="rounded-full px-8 font-semibold text-base">
+                <Link to="/academics">
+                  Explore Programs <ArrowRight className="h-4 w-4 ml-1" />
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild className="rounded-full px-8 font-semibold text-base border-2">
+                <Link to="/admissions">Admissions 2026-27</Link>
+              </Button>
+            </div>
           </div>
         </div>
-
-        {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex justify-center">
-            <div className="w-1 h-3 rounded-full bg-primary mt-2 animate-float" />
-          </div>
-        </div> */}
       </section>
 
       {/* Announcement Alert */}
-      <section className="page-section pb-0 relative md:mt-6 -mt-16 z-10">
+      <section className="page-section pb-0 relative z-10">
         <div className="container mx-auto max-w-3xl">
-          <Alert className="neon-glow">
-            <AlertCircle className="h-4 w-4" />
-            <AlertTitle>Admissions 2026-27 Now Open!</AlertTitle>
+          <Alert className="border-primary/20 bg-primary/5">
+            <AlertCircle className="h-4 w-4 text-primary" />
+            <AlertTitle className="text-primary font-semibold">Admissions 2026-27 Now Open!</AlertTitle>
             <AlertDescription>
               Limited seats available. Apply before March 31, 2026 to avail early-bird discount.{' '}
               <Link to="/admissions" className="text-primary font-medium underline">Apply Now</Link>
@@ -172,11 +175,13 @@ const Home = () => {
         <div className="container mx-auto">
           <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {stats.map((stat, i) => (
-              <Card key={i} className="glass-card hover-neon-card text-center">
+              <Card key={i} className="text-center hover:shadow-lg transition-shadow border-border/50">
                 <CardContent className="pt-6">
-                  <stat.icon className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                    <stat.icon className="h-6 w-6 text-primary" />
+                  </div>
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                  <p className="text-sm text-muted-foreground mt-1 font-accent tracking-wider uppercase">
+                  <p className="text-sm text-muted-foreground mt-1 font-medium tracking-wider uppercase">
                     {stat.label}
                   </p>
                 </CardContent>
@@ -187,7 +192,7 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="page-section bg-muted/30">
+      <section className="page-section bg-muted/40">
         <div className="container mx-auto text-center">
           <h2 className="section-title">
             Why Choose <span className="gradient-text">Public Inter College?</span>
@@ -197,16 +202,15 @@ const Home = () => {
           </p>
           <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, i) => (
-              <Card key={i} className="hover-neon-card text-left group cursor-pointer">
+              <Card key={i} className="text-left group cursor-default hover:shadow-lg transition-all hover:-translate-y-1 border-border/50">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-2 group-hover:bg-primary/20 transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-2 group-hover:bg-primary/20 transition-colors">
                     <feature.icon className="h-6 w-6 text-primary" />
                   </div>
                   <CardTitle className="text-lg">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
-                  <Badge variant="outline" className="mt-3">Learn More</Badge>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -223,7 +227,7 @@ const Home = () => {
           <p className="section-subtitle text-center mb-10">Take a virtual tour of our vibrant school life.</p>
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="w-full md:w-[70%]">
-              <Card className="overflow-hidden">
+              <Card className="overflow-hidden shadow-lg border-border/50">
                 <div className="relative aspect-video bg-muted">
                   <video
                     className="w-full h-full object-cover"
@@ -246,7 +250,7 @@ const Home = () => {
               <h3 className="font-heading text-xl font-semibold mb-4">
                 A Glimpse Into Our World
               </h3>
-              <p className="text-sm text-muted-foreground mb-4">
+              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                 Watch how our students learn, grow, and thrive in an environment built for excellence. From modern classrooms to vibrant playgrounds, see what makes Public Inter College special.
               </p>
               <ul className="space-y-3 text-sm text-muted-foreground">
@@ -263,7 +267,7 @@ const Home = () => {
                   Community-driven culture
                 </li>
               </ul>
-              <Button className="mt-6" variant="outline" size="sm" asChild>
+              <Button className="mt-6 rounded-full" variant="outline" size="sm" asChild>
                 <Link to="/gallery">View Gallery <ArrowRight className="h-3 w-3 ml-1" /></Link>
               </Button>
             </div>
@@ -272,13 +276,13 @@ const Home = () => {
       </section>
 
       {/* Academic Performance Chart */}
-      <section className="page-section">
+      <section className="page-section bg-muted/40">
         <div className="container mx-auto">
           <h2 className="section-title text-center">
             Academic <span className="gradient-text">Performance</span>
           </h2>
           <p className="section-subtitle text-center mb-8">Our consistent track record of excellence speaks for itself.</p>
-          <Card ref={chartRef} className="max-w-2xl mx-auto">
+          <Card ref={chartRef} className="max-w-2xl mx-auto shadow-lg border-border/50">
             <CardHeader>
               <CardTitle>Board Exam Results (2022-2025)</CardTitle>
             </CardHeader>
@@ -298,7 +302,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Carousel */}
-      <section className="page-section bg-muted/30">
+      <section className="page-section">
         <div className="container mx-auto text-center">
           <h2 className="section-title">
             What Parents <span className="gradient-text">Say</span>
@@ -308,12 +312,12 @@ const Home = () => {
             <CarouselContent>
               {testimonials.map((t, i) => (
                 <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/2">
-                  <Card className="h-full">
+                  <Card className="h-full border-border/50">
                     <CardContent className="pt-6">
-                      <p className="text-muted-foreground italic mb-4 text-sm">"{t.quote}"</p>
+                      <p className="text-muted-foreground italic mb-4 text-sm leading-relaxed">"{t.quote}"</p>
                       <div className="flex items-center gap-3">
                         <Avatar>
-                          <AvatarFallback className="bg-primary/10 text-primary">{t.initials}</AvatarFallback>
+                          <AvatarFallback className="bg-primary/10 text-primary font-semibold">{t.initials}</AvatarFallback>
                         </Avatar>
                         <div className="text-left">
                           <p className="font-semibold text-sm">{t.name}</p>
@@ -332,10 +336,10 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="page-section">
+      <section className="page-section bg-muted/40">
         <div ref={ctaRef} className="container mx-auto">
-          <Card className="neon-glow p-8 md:p-12 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+          <Card className="p-8 md:p-12 text-center relative overflow-hidden border-primary/20 shadow-lg">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/3" />
             <CardContent className="relative z-10 p-0">
               <h2 className="section-title mb-4">
                 Ready to <span className="gradient-text">Join Us?</span>
@@ -344,12 +348,12 @@ const Home = () => {
                 Take the first step towards a future-ready education. Admissions for 2026-27 are now open.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild>
+                <Button size="lg" asChild className="rounded-full px-8 font-semibold">
                   <Link to="/admissions">
                     Start Your Journey <ArrowRight className="h-4 w-4 ml-1" />
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
+                <Button variant="outline" size="lg" asChild className="rounded-full px-8 font-semibold border-2">
                   <Link to="/contact">Contact Us</Link>
                 </Button>
               </div>

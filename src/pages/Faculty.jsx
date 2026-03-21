@@ -99,7 +99,7 @@ const Faculty = () => {
           {/* Hero */}
           <section className="relative min-h-[40vh] flex items-center overflow-hidden">
             <FloatingAvatars />
-            <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/60 via-background/40 to-background" />
+            <div className="absolute inset-0 z-[1] bg-background/80" />
             <div ref={heroRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
               <h1 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
                 Our <span className="gradient-text">Faculty</span>
@@ -184,7 +184,7 @@ const Faculty = () => {
                       <Tooltip key={member.name}>
                         <TooltipTrigger asChild>
                           <Card
-                            className="hover-neon-card cursor-pointer transition-all"
+                            className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
                             onClick={() => setSelectedMember(member)}
                           >
                             <CardContent className={viewMode === 'grid' ? 'pt-6 text-center' : 'py-4 flex items-center gap-4'}>
@@ -252,7 +252,7 @@ const Faculty = () => {
           </Dialog>
 
           {/* Faculty Stats */}
-          <section className="page-section bg-muted/30">
+          <section className="page-section bg-muted/40">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 {[

@@ -40,7 +40,7 @@ const NotFound = () => {
   return (
     <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
       <Floating404 />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/40 via-background/60 to-background" />
+      <div className="absolute inset-0 z-[1] bg-background/80" />
       <div className="relative z-10 text-center px-4">
         <h1
           ref={titleRef}
@@ -55,7 +55,7 @@ const NotFound = () => {
           </p>
         </div>
         <div ref={ctaRef} style={{ opacity: 0 }}>
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="rounded-full px-8">
             <Link to="/">Go Back Home</Link>
           </Button>
         </div>

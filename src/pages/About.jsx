@@ -49,7 +49,7 @@ const About = () => {
       {/* Hero with FloatingGlobe */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <FloatingGlobe />
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        <div className="absolute inset-0 z-[1] bg-background/80" />
         <div ref={heroRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
             About <span className="gradient-text">Public Inter College</span>
@@ -190,7 +190,7 @@ const About = () => {
       </section>
 
       {/* Enrollment Growth Chart */}
-      <section className="page-section bg-muted/30">
+      <section className="page-section bg-muted/40">
         <div className="max-w-2xl mx-auto">
           <h2 className="section-title text-center">
             Enrollment <span className="gradient-text">Growth</span>
@@ -216,7 +216,7 @@ const About = () => {
       {/* Principal's Message */}
       <section className="page-section">
         <div className="max-w-4xl mx-auto">
-          <Card className="neon-glow">
+          <Card className="shadow-lg border-primary/20">
             <CardContent className="p-8 sm:p-12">
               <h2 className="section-title text-center mb-8">From the Principal's Desk</h2>
               <div className="flex flex-col md:flex-row gap-8 items-center">

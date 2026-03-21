@@ -55,7 +55,7 @@ const Contact = () => {
       {/* Hero */}
       <section className="relative min-h-[10vh] flex items-center overflow-hidden">
         <ParticleBackground color="#10b981" />
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        <div className="absolute inset-0 z-[1] bg-background/80" />
         <div ref={heroRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-10">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
             <span className="gradient-text">Contact Us</span>
@@ -240,7 +240,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ */}
-      <section className="page-section bg-muted/30">
+      <section className="page-section bg-muted/40">
         <div className="max-w-3xl mx-auto">
           <h2 className="section-title text-center">Frequently Asked <span className="gradient-text">Questions</span></h2>
           <Accordion type="single" collapsible className="mt-8">

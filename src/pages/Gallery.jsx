@@ -103,7 +103,7 @@ const Gallery = () => {
       {/* Hero */}
       <section className="relative min-h-[40vh] flex items-center overflow-hidden">
         <ParticleBackground color="#ec4899" />
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        <div className="absolute inset-0 z-[1] bg-background/80" />
         <div ref={heroRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 md:py-14">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold mb-8">
             Photo <span className="gradient-text">Gallery</span>
@@ -174,7 +174,7 @@ const Gallery = () => {
                       {cat.images.map((img) => (
                         <Card
                           key={img.id}
-                          className="hover-neon-card cursor-pointer overflow-hidden group"
+                          className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer overflow-hidden group"
                           onClick={() => openLightbox(img.id)}
                         >
                           <CardContent className="p-0">
@@ -199,7 +199,7 @@ const Gallery = () => {
                       {cat.images.map((img) => (
                         <Card
                           key={img.id}
-                          className="hover-neon-card cursor-pointer"
+                          className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
                           onClick={() => openLightbox(img.id)}
                         >
                           <CardContent className="py-4 flex items-center gap-4">
@@ -263,7 +263,7 @@ const Gallery = () => {
       </Dialog>
 
       {/* Social CTA */}
-      <section className="page-section bg-muted/30">
+      <section className="page-section bg-muted/40">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="section-title">Follow Us for <span className="gradient-text">More</span></h2>
           <p className="section-subtitle mb-6">

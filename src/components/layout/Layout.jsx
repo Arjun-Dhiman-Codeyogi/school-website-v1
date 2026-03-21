@@ -32,7 +32,7 @@ const Layout = () => {
     <div className="min-h-screen flex flex-col relative overflow-x-hidden">
       <TwinklingStars />
       <Navbar />
-      <main className={cn("flex-1", isHome ? "pt-0" : isContact ? "pt-14 md:pt-[82px]" : "pt-14 md:pt-[70px]")}>
+      <main className={cn("flex-1", isHome ? "pt-0" : isContact ? "pt-14 md:pt-[72px]" : "pt-14 md:pt-[72px]")}>
         {!isHome && (
           <div className={cn("max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-[5px]", isContact ? "py-3" : "py-1.5")}>
             <Breadcrumb>

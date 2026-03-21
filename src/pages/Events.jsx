@@ -51,7 +51,7 @@ const Events = () => {
       {/* Hero */}
       <section className="relative min-h-[40vh] flex items-center overflow-hidden">
         <ParticleBackground color="#f59e0b" />
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/60 via-background/40 to-background" />
+        <div className="absolute inset-0 z-[1] bg-background/80" />
         <div ref={heroRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold mb-4">
             Events & <span className="gradient-text">Activities</span>
@@ -127,19 +127,19 @@ const Events = () => {
             <div>
               <h2 className="section-title">Quick <span className="gradient-text">Overview</span></h2>
               <div className="space-y-4">
-                <Card className="hover-neon-card">
+                <Card className="hover:shadow-lg transition-all hover:-translate-y-1">
                   <CardContent className="py-4 flex items-center justify-between">
                     <span className="font-medium">Upcoming Events</span>
                     <Badge>{upcomingEvents.length}</Badge>
                   </CardContent>
                 </Card>
-                <Card className="hover-neon-card">
+                <Card className="hover:shadow-lg transition-all hover:-translate-y-1">
                   <CardContent className="py-4 flex items-center justify-between">
                     <span className="font-medium">Past Highlights</span>
                     <Badge variant="secondary">{pastHighlights.length}</Badge>
                   </CardContent>
                 </Card>
-                <Card className="hover-neon-card">
+                <Card className="hover:shadow-lg transition-all hover:-translate-y-1">
                   <CardContent className="py-4 flex items-center justify-between">
                     <span className="font-medium">Next Event</span>
                     <Badge variant="outline">{upcomingEvents[0]?.date}</Badge>
@@ -152,7 +152,7 @@ const Events = () => {
       </section>
 
       {/* Events Tabs */}
-      <section className="page-section bg-muted/30">
+      <section className="page-section bg-muted/40">
         <div className="max-w-5xl mx-auto">
           <Tabs defaultValue="upcoming">
             <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto">
@@ -163,7 +163,7 @@ const Events = () => {
             <TabsContent value="upcoming" className="mt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {upcomingEvents.map((event, i) => (
-                  <Card key={i} className="hover-neon-card">
+                  <Card key={i} className="hover:shadow-lg transition-all hover:-translate-y-1">
                     <CardHeader className="pb-2">
                       <div className="flex justify-between items-start">
                         <Badge>{event.category}</Badge>
