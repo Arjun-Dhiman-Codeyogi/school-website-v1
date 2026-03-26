@@ -121,7 +121,7 @@ const Home = () => {
           <img
             src="mainBuilding.jpg"
             alt="Public Inter College Building"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-[center_20%]"
           />
           <div className={`absolute inset-0 ${theme === 'light' ? 'bg-background/75' : 'bg-background/80'}`} />
         </div>
@@ -129,7 +129,7 @@ const Home = () => {
         <div className="absolute top-20 right-[15%] w-72 h-72 rounded-full bg-primary/8 blur-3xl hidden md:block" />
         <div className="absolute bottom-20 right-[30%] w-48 h-48 rounded-full bg-primary/5 blur-2xl hidden md:block" />
 
-        <div ref={heroTitleRef} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24 pb-12 md:pt-18 md:pb-0">
+        <div ref={heroTitleRef} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-[126px] pb-12 md:pt-18 md:pb-0">
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-widest uppercase mb-8">
               <Sparkles className="h-3 w-3" />

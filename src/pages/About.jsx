@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
-import { Avatar, AvatarFallback } from '../components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Progress } from '../components/ui/progress';
 import { Separator } from '../components/ui/separator';
@@ -220,9 +220,13 @@ const About = () => {
             <CardContent className="p-8 sm:p-12">
               <h2 className="section-title text-center mb-8">From the Principal's Desk</h2>
               <div className="flex flex-col md:flex-row gap-8 items-center">
-                <Avatar className="h-24 w-24">
-                  <AvatarFallback className="text-2xl bg-primary/10 text-primary">DC</AvatarFallback>
-                </Avatar>
+                <div className="shrink-0 border-2 border-primary/30 rounded-lg p-2">
+                  <img
+                    src="/principle.jpg"
+                    alt="Mr. Damodar Choudhary"
+                    className="w-[152px] h-[220px] object-cover rounded-md"
+                  />
+                </div>
                 <div>
                   <p className="text-muted-foreground leading-relaxed mb-4">
                     "At Public Inter College, we believe that every child is unique and has the potential to
